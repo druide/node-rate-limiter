@@ -1,4 +1,4 @@
-Node Rate Limiter
+Rate Limiter
 ---------
 
 Provides a generic rate limiter for node.js. Useful for API clients, web
@@ -13,13 +13,13 @@ restrictions like "150 requests per hour maximum".
 
 Use NPM to install:
 
-    npm install limiter2
+    npm install @druide/rate-limiter
 
 ## Usage ##
 
 A simple example allowing 150 requests per hour:
 
-    const RateLimiter = require('limiter').RateLimiter
+    const RateLimiter = require('@druide/rate-limiter')
     // Allow 150 requests per hour (the Twitter search limit). Also understands
     // 'second', 'minute', 'day', or a number of milliseconds
     const limiter = new RateLimiter(150, 'hour')
@@ -31,7 +31,7 @@ A simple example allowing 150 requests per hour:
 
 Another example allowing one message to be sent every 250ms:
 
-    const RateLimiter = require('limiter').RateLimiter
+    const RateLimiter = require('@druide/rate-limiter')
     const limiter = new RateLimiter(1, 250)
 
     if (limiter.accept(1)) {
@@ -42,7 +42,7 @@ Uses the token bucket directly to throttle at the byte level:
 
     const BURST_RATE = 1024 * 1024 * 150 // 150KB/sec burst rate
     const FILL_RATE = 1024 * 1024 * 50 // 50KB/sec sustained rate
-    const TokenBucket = require('limiter').TokenBucket
+    const TokenBucket = require('@druide/rate-limiter').TokenBucket
     // We could also pass a parent token bucket in as the last parameter to
     // create a hierarchical token bucket
     const bucket = new TokenBucket(BURST_RATE, FILL_RATE, 'second')

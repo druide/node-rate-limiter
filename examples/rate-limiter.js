@@ -1,4 +1,4 @@
-const RateLimiter = require('../').RateLimiter
+const RateLimiter = require('../')
 // Allow 150 requests per hour (the Twitter search limit). Also understands
 // 'second', 'minute', 'day', or a number of milliseconds
 const limiter = new RateLimiter(1, 'second')

@@ -1,4 +1,4 @@
 require('flow-remove-types/register')
 
-exports.RateLimiter = require('./lib/rateLimiter')
-exports.TokenBucket = require('./lib/tokenBucket')
+module.exports = require('./lib/rate-limiter')
+module.exports.TokenBucket = require('./lib/token-bucket')
