@@ -1,6 +1,5 @@
-Node Rate Limiter [![Gittip](http://badgr.co/gittip/fgribreau.png)](https://www.gittip.com/fgribreau/)
+Node Rate Limiter
 ---------
-
 
 Provides a generic rate limiter for node.js. Useful for API clients, web
 crawling, or other tasks that need to be throttled. Two classes are exposed,
@@ -9,11 +8,6 @@ rate limiting with a configurable burst rate and drip rate. RateLimiter sits
 on top of the token bucket and adds a restriction on the maximum number of
 tokens that can be removed each interval to comply with common API
 restrictions like "150 requests per hour maximum".
-
-## Fork by @FGRibreau
-* Don't wait for available tokens (don't use an internal queue with `setTimeout`)
-* Don't use callbacks
-* ParentBucket removed
 
 ## Installation ##
 
@@ -25,50 +19,43 @@ Use NPM to install:
 
 A simple example allowing 150 requests per hour:
 
-    var RateLimiter = require('limiter').RateLimiter;
+    const RateLimiter = require('limiter').RateLimiter
     // Allow 150 requests per hour (the Twitter search limit). Also understands
     // 'second', 'minute', 'day', or a number of milliseconds
-    var limiter = new RateLimiter(150, 'hour');
+    const limiter = new RateLimiter(150, 'hour')
 
     // Throttle requests
-    if(limiter.accept(1)){
-      callMyRequestSendingFunction(...);
+    if (limiter.accept(1)) {
+      callMyRequestSendingFunction(...)
     }
 
 Another example allowing one message to be sent every 250ms:
 
-    var RateLimiter = require('limiter').RateLimiter;
-    var limiter = new RateLimiter(1, 250);
+    const RateLimiter = require('limiter').RateLimiter
+    const limiter = new RateLimiter(1, 250)
 
-    if(limiter.accept(1)){
-      callMyMessageSendingFunction(...);
+    if (limiter.accept(1)) {
+      callMyMessageSendingFunction(...)
     }
 
 Uses the token bucket directly to throttle at the byte level:
 
-    var BURST_RATE = 1024 * 1024 * 150; // 150KB/sec burst rate
-    var FILL_RATE = 1024 * 1024 * 50; // 50KB/sec sustained rate
-    var TokenBucket = require('limiter').TokenBucket;
+    const BURST_RATE = 1024 * 1024 * 150 // 150KB/sec burst rate
+    const FILL_RATE = 1024 * 1024 * 50 // 50KB/sec sustained rate
+    const TokenBucket = require('limiter').TokenBucket
     // We could also pass a parent token bucket in as the last parameter to
     // create a hierarchical token bucket
-    var bucket = new TokenBucket(BURST_RATE, FILL_RATE, 'second');
+    const bucket = new TokenBucket(BURST_RATE, FILL_RATE, 'second')
 
-    if(bucket.accept(myData.byteLength)){
-      sendMyData(myData);
-    });
-
-## Donate
-[Donate Bitcoins](https://coinbase.com/checkouts/fc3041b9d8116e0b98e7d243c4727a30)
-
-## Sponsors ##
-
-* [cull.tv](http://cull.tv/) - New music television
+    if (bucket.accept(myData.byteLength)) {
+      sendMyData(myData)
+    })
 
 ## License ##
 
 (The MIT License)
 
-Copyright (c) 2011 Cull TV, Inc. &lt;jhurliman@cull.tv&gt;
+Copyright (c) 2011 Cull TV, Inc. <jhurliman@cull.tv>
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the

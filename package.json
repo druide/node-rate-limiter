@@ -1,23 +1,27 @@
 {
-  "name": "limiter2",
+  "name": "@druide/rate-limiter",
   "description": "Rate limiter for Node.js",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "author": "Francois-Guillaume Ribreau <npm@fgribreau.com> (http://fgribreau.com)",
-  "contributors":[
+  "contributors": [
     "John Hurliman <jhurliman@cull.tv>"
   ],
-  "dependencies": {},
+  "dependencies": {
+    "flow-remove-types": "^1.0.5"
+  },
   "devDependencies": {
     "assert": "0.4.9",
     "vows": "0.6.3"
   },
-  "keywords": ["rate", "limiting", "throttling"],
-  "repository": "git://github.com/FGRibreau/node-rate-limiter",
-  "bugs": { "url": "https://github.com/FGRibreau/node-rate-limiter/issues" },
-  "directories": { "lib": "./lib/" },
+  "keywords": [
+    "rate",
+    "limiting",
+    "throttling"
+  ],
+  "repository": "git://github.com/druide/rate-limiter",
+  "directories": {
+    "lib": "./lib/"
+  },
   "main": "./index.js",
-  "licenses": [{
-    "type": "MIT",
-    "url": "https://github.com/FGRibreau/node-rate-limiter/raw/master/LICENSE.txt"
-  }]
+  "license": "MIT"
 }
