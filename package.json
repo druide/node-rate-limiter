@@ -1,7 +1,7 @@
 {
   "name": "@druide/rate-limiter",
   "description": "Rate limiter for Node.js",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "author": "Francois-Guillaume Ribreau <npm@fgribreau.com> (http://fgribreau.com)",
   "contributors": [
     "John Hurliman <jhurliman@cull.tv>"
