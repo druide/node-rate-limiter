@@ -51,6 +51,15 @@ Uses the token bucket directly to throttle at the byte level:
       sendMyData(myData)
     })
 
+Throttle any function
+
+    const throttle = require('@druide/rate-limiter').throttle
+    const log = throttle(console.log, 10, 10000)
+    let i = 0
+    setInterval(() => {
+        log(++i)
+    }, 100)
+
 ## License ##
 
 (The MIT License)
