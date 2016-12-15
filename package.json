@@ -1,13 +1,13 @@
 {
   "name": "@druide/rate-limiter",
   "description": "Rate limiter for Node.js",
-  "version": "1.2.5",
+  "version": "1.2.6",
   "author": "Francois-Guillaume Ribreau <npm@fgribreau.com> (http://fgribreau.com)",
   "contributors": [
     "John Hurliman <jhurliman@cull.tv>"
   ],
   "dependencies": {
-    "@druide/flow-remove-types-register": "^1.0.0"
+    "@druide/flow-remove-types-register": "^1.1.1"
   },
   "devDependencies": {
     "assert": "0.4.9",
